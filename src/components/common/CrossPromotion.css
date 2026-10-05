@@ -1,0 +1,58 @@
+/* ==========================================================================
+   Cross Promotion Styling
+   ========================================================================== */
+
+.cross-promo-section {
+  padding: 6rem 0;
+  border-top: 1px solid var(--border-default);
+  background: radial-gradient(circle at 50% 100%, rgba(56, 189, 248, 0.04) 0%, transparent 60%);
+}
+
+.cross-promo-header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 3rem;
+}
+
+.cross-promo-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--cyan-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: rgba(56, 189, 248, 0.1);
+  padding: 0.3125rem 0.75rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  margin-bottom: 1rem;
+}
+
+.cross-promo-title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+}
+
+.cross-promo-sub {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.cross-promo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 2rem;
+  max-width: 840px;
+  margin: 0 auto;
+}
+
+@media (max-width: 640px) {
+  .cross-promo-grid {
+    grid-template-columns: 1fr;
+  }
+}

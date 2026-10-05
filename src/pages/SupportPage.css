@@ -1,0 +1,142 @@
+/* ==========================================================================
+   Support Page Styling
+   ========================================================================== */
+
+.support-page {
+  padding-bottom: 6rem;
+}
+
+.support-hero {
+  padding: 5rem 0 3.5rem;
+  text-align: center;
+}
+
+.support-container {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.support-title {
+  font-size: 2.75rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+  margin-bottom: 1.25rem;
+}
+
+@media (max-width: 640px) {
+  .support-title {
+    font-size: 2rem;
+  }
+}
+
+.support-lead {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.support-actions-card {
+  padding: 2.5rem;
+  margin-bottom: 4rem;
+}
+
+.actions-card-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.actions-card-desc {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+.action-buttons-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+@media (max-width: 640px) {
+  .action-buttons-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.support-action-btn {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-default);
+  padding: 1.25rem;
+  border-radius: var(--radius-md);
+  color: #ffffff;
+  transition: all var(--transition-fast);
+}
+
+.support-action-btn:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--cyan-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.primary-action {
+  border-color: rgba(56, 189, 248, 0.35);
+  background: rgba(56, 189, 248, 0.04);
+}
+
+.action-btn-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.2rem;
+}
+
+.action-btn-sub {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.troubleshooting-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+}
+
+.direct-email-card {
+  padding: 3rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 4rem;
+}
+
+.direct-email-card h3 {
+  font-size: 1.5rem;
+  color: #ffffff;
+}
+
+.direct-email-card p {
+  color: var(--text-secondary);
+}
+
+.direct-email-link {
+  font-family: var(--font-mono);
+  font-size: 1.125rem;
+  color: var(--cyan-primary);
+  font-weight: 600;
+  border-bottom: 1px dashed var(--cyan-primary);
+  padding-bottom: 2px;
+}
+
+.direct-email-link:hover {
+  color: var(--cyan-hover);
+}

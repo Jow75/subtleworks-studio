@@ -1,0 +1,217 @@
+/* ==========================================================================
+   Privacy Page Styling
+   ========================================================================== */
+
+.privacy-page {
+  padding-bottom: 6rem;
+}
+
+.privacy-hero {
+  padding: 5rem 0 3rem;
+  text-align: center;
+}
+
+.privacy-container {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.privacy-title {
+  font-size: 2.75rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+  margin-bottom: 1.25rem;
+}
+
+@media (max-width: 640px) {
+  .privacy-title {
+    font-size: 2rem;
+  }
+}
+
+.privacy-lead {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.privacy-summary-card {
+  padding: 2.25rem;
+  margin-bottom: 3.5rem;
+  background: rgba(16, 185, 129, 0.04);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.summary-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #34d399;
+  letter-spacing: 0.06em;
+  margin-bottom: 1.25rem;
+}
+
+.summary-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.summary-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.summary-list strong {
+  color: #ffffff;
+}
+
+.audit-section-heading {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 1.75rem;
+}
+
+.audits-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  margin-bottom: 3.5rem;
+}
+
+.extension-audit-block {
+  padding: 2.5rem;
+}
+
+.audit-block-header {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.audit-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  object-fit: contain;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03));
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), 0 0 12px rgba(56, 189, 248, 0.1);
+}
+
+.audit-tool-name {
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.25rem;
+}
+
+.audit-text-block {
+  margin-bottom: 1.75rem;
+}
+
+.audit-text-block:last-child {
+  margin-bottom: 0;
+}
+
+.audit-text-block h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.audit-text-block p {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.audit-text-block code {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  color: var(--cyan-primary);
+}
+
+.network-list {
+  padding-left: 1.25rem;
+  margin-top: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.network-list strong {
+  color: #ffffff;
+}
+
+.perm-table {
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-top: 0.75rem;
+}
+
+.perm-table-row {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  padding: 0.875rem 1.25rem;
+  border-bottom: 1px solid var(--border-subtle);
+  background: rgba(255, 255, 255, 0.01);
+  gap: 1rem;
+  align-items: center;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.perm-table-row:last-child {
+  border-bottom: none;
+}
+
+@media (max-width: 640px) {
+  .perm-table-row {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+}
+
+.privacy-contact-box {
+  padding: 2.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.privacy-contact-box h3 {
+  font-size: 1.375rem;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.privacy-contact-box p {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  max-width: 520px;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}

@@ -1,0 +1,290 @@
+/* ==========================================================================
+   About Page Styling
+   ========================================================================== */
+
+.about-page {
+  padding-bottom: 6rem;
+}
+
+.about-hero {
+  padding: 5rem 0 3.5rem;
+  text-align: center;
+}
+
+.about-container {
+  max-width: 840px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-title {
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+@media (max-width: 640px) {
+  .about-title {
+    font-size: 2.25rem;
+  }
+}
+
+.about-lead {
+  font-size: 1.1875rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Brand Architecture Section */
+.about-brand-architecture {
+  padding: 1.5rem 0 3rem;
+}
+
+.brand-arch-container {
+  max-width: 880px;
+}
+
+.brand-arch-card {
+  padding: 2.75rem;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(56, 189, 248, 0.15);
+  background: radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.05) 0%, rgba(15, 23, 42, 0.6) 80%);
+}
+
+.brand-arch-eyebrow {
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+
+.brand-arch-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-cyan);
+  background: rgba(56, 189, 248, 0.08);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+.brand-arch-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  letter-spacing: -0.02em;
+}
+
+.brand-arch-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 2rem;
+}
+
+@media (max-width: 680px) {
+  .brand-arch-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    text-align: center;
+  }
+}
+
+.brand-arch-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-subtle);
+}
+
+@media (max-width: 680px) {
+  .brand-arch-col {
+    align-items: center;
+  }
+}
+
+.brand-tier-badge {
+  align-self: flex-start;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.25rem 0.625rem;
+  border-radius: var(--radius-sm);
+}
+
+@media (max-width: 680px) {
+  .brand-tier-badge {
+    align-self: center;
+  }
+}
+
+.badge-parent {
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+}
+
+.badge-studio {
+  color: #a855f7;
+  background: rgba(168, 85, 247, 0.1);
+  border: 1px solid rgba(168, 85, 247, 0.25);
+}
+
+.brand-entity-name {
+  font-size: 1.375rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+
+.brand-entity-desc {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.brand-arch-divider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-cyan);
+  font-size: 1.25rem;
+  font-weight: 700;
+  user-select: none;
+}
+
+.brand-arch-line {
+  display: none;
+}
+
+@media (max-width: 680px) {
+  .brand-arch-divider {
+    transform: rotate(0deg);
+  }
+}
+
+@media (min-width: 681px) {
+  .brand-arch-arrow {
+    transform: rotate(-90deg);
+  }
+}
+
+.about-manifesto {
+  padding: 2rem 0;
+}
+
+.manifesto-container {
+  max-width: 880px;
+}
+
+.manifesto-card {
+  padding: 3rem;
+}
+
+@media (max-width: 640px) {
+  .manifesto-card {
+    padding: 2rem 1.5rem;
+  }
+}
+
+.manifesto-heading {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.manifesto-points {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.manifesto-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+@media (max-width: 580px) {
+  .manifesto-item {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}
+
+.manifesto-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-default);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.manifesto-item-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.manifesto-item-text {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.about-developer {
+  padding: 3rem 0;
+}
+
+.dev-container {
+  max-width: 880px;
+}
+
+.dev-card {
+  padding: 3rem;
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(12, 17, 29, 0.8) 100%);
+}
+
+.dev-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.dev-desc {
+  font-size: 1.0625rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  max-width: 680px;
+}
+
+.dev-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
