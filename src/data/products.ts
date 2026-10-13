@@ -65,6 +65,7 @@ export interface Product {
   extensionId: string;
   chromeStoreUrl: string;
   legacyStoreUrl: string;
+  reviewsUrl?: string;
   icon: string;
   heroPreview: string;
   badges: string[];
@@ -396,11 +397,12 @@ export const PRODUCTS: Product[] = [
     status: 'live',
     pricingType: 'free',
     priceBadge: '100% Free & Offline',
-    version: '1.0.0',
+    version: '1.0.1',
     manifestVersion: 3,
     extensionId: 'pddfpjmkodjaobcaieajifcpcmpojlbo',
     chromeStoreUrl: 'https://chromewebstore.google.com/detail/pddfpjmkodjaobcaieajifcpcmpojlbo',
     legacyStoreUrl: 'https://chrome.google.com/webstore/detail/pddfpjmkodjaobcaieajifcpcmpojlbo',
+    reviewsUrl: 'https://chromewebstore.google.com/detail/invisible-selection/pddfpjmkodjaobcaieajifcpcmpojlbo/reviews',
     icon: '/assets/extensions/invisible-selection/icon128.png',
     heroPreview: '/assets/extensions/invisible-selection/screenshot-01-active.png',
     badges: ['100% Free', 'Manifest V3', '100% Offline', 'Zero Data Collection'],

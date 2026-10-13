@@ -14,7 +14,8 @@ import {
   UserCheck,
   Zap,
   Maximize2,
-  X
+  X,
+  Star
 } from 'lucide-react';
 import { getProductBySlug } from '../data/products';
 import { PhantomTyperDemo } from '../components/demos/PhantomTyperDemo';
@@ -95,6 +96,19 @@ export const ProductDetailPage: React.FC = () => {
                   <ExternalLink size={18} />
                   <span>Install from Chrome Web Store</span>
                 </a>
+
+                {product.reviewsUrl && (
+                  <a
+                    href={product.reviewsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-secondary btn-lg detail-review-btn"
+                    title="Leave a Review on Chrome Web Store"
+                  >
+                    <Star size={16} className="text-amber" />
+                    <span>Rate / Leave a Review</span>
+                  </a>
+                )}
 
                 <a href="#how-it-works" className="btn btn-secondary btn-lg">
                   <span>How It Works</span>
@@ -491,7 +505,8 @@ export const ProductDetailPage: React.FC = () => {
             <p className="final-cta-desc">
               Available instantly from the official Chrome Web Store. Runs on Chrome, Edge, Brave, and all Chromium browsers.
             </p>
-            <a
+            <div className="final-cta-btn-group" style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
+              <a
               href={product.chromeStoreUrl}
               target="_blank"
               rel="noopener noreferrer"
@@ -500,6 +515,19 @@ export const ProductDetailPage: React.FC = () => {
               <ExternalLink size={18} />
               <span>Add to Chrome — It Takes 5 Seconds</span>
             </a>
+              {product.reviewsUrl && (
+                <a
+                  href={product.reviewsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-secondary btn-lg"
+                  title="Rate on Chrome Web Store"
+                >
+                  <Star size={16} className="text-amber" />
+                  <span>Rate / Leave a Review</span>
+                </a>
+              )}
+            </div>
           </div>
         </div>
       </section>
