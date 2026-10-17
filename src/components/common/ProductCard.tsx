@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ExternalLink, ArrowRight, ShieldCheck, Zap, Keyboard, Copy, Check, FileText } from 'lucide-react';
+import { ExternalLink, ArrowRight, ShieldCheck, Zap, Keyboard, Copy, Check, FileText, Camera, Layers, Crop } from 'lucide-react';
 import type { Product } from '../../data/products';
 import './ProductCard.css';
 
@@ -16,6 +16,9 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, featured = fa
       case 'Keyboard': return <Keyboard size={13} className="text-cyan" />;
       case 'FileText': return <FileText size={13} className="text-cyan" />;
       case 'Copy': return <Copy size={13} className="text-cyan" />;
+      case 'Camera': return <Camera size={13} className="text-cyan" />;
+      case 'Layers': return <Layers size={13} className="text-cyan" />;
+      case 'Crop': return <Crop size={13} className="text-cyan" />;
       case 'ShieldCheck': return <ShieldCheck size={13} className="text-emerald" />;
       default: return <Check size={13} className="text-cyan" />;
     }

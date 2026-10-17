@@ -2,10 +2,9 @@
   command = "npm run build"
   publish = "dist"
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# Routing rules are not listed here. The build writes dist/_redirects (per-route HTML,
+# redirects from old product URLs, and a real 404 for unknown paths) from the page list
+# in src/data/siteMeta.ts — see routeMetaPlugin in vite.config.ts.
 
 [[headers]]
   for = "/*"

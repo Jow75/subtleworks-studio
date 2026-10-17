@@ -17,19 +17,23 @@ export const SupportPage: React.FC = () => {
 
   const supportFaqs = [
     {
-      q: 'Why doesn’t Invisible Selection or Phantom Typer work on chromewebstore.google.com?',
+      q: 'Why doesn’t Snap Flow Studio, Invisible Selection, or Phantom Typer work on chromewebstore.google.com?',
       a: 'Google Chrome strictly blocks all extensions from injecting content scripts into Chrome Web Store pages (chromewebstore.google.com) and internal browser settings (chrome://settings, chrome://extensions) for browser security. On normal websites, the extensions operate normally.'
     },
     {
-      q: 'How do I change the keyboard shortcut in Phantom Typer?',
-      a: 'Click the Phantom Typer icon in your toolbar, switch to the Settings tab, scroll down to the Keyboard Shortcut section, and choose your preferred trigger key (e.g. Ctrl+Shift+Q or any letter). You can also configure shortcuts directly at chrome://extensions/shortcuts in your browser.'
+      q: 'How does Snap Flow Studio Smart-Split PDF prevent slicing text lines in half?',
+      a: 'Before dividing tall page captures across A4 or US Letter pages, the local PDF engine performs horizontal whitespace gutter scanning to detect paragraph breaks, placing page divisions naturally in empty spaces rather than bisecting lines of text.'
+    },
+    {
+      q: 'How do I change the keyboard shortcut in Phantom Typer or Snap Flow Studio?',
+      a: 'In Phantom Typer, you can configure your trigger key directly in the popup Settings tab. For Snap Flow Studio (Alt+Shift+S for Full Page, Alt+Shift+V for Visible Area) and all other shortcuts, you can customize key combinations directly at chrome://extensions/shortcuts in your browser.'
     },
     {
       q: 'How do I cancel or update my Phantom Typer Pro subscription?',
       a: 'Subscriptions are securely managed through Paystack. You can cancel your subscription anytime with zero penalty. Simply email gmuraguri75@gmail.com with your account email address and we will immediately process your cancellation or refund.'
     },
     {
-      q: 'Why did text selection look normal inside a particular widget?',
+      q: 'Why did text selection look normal inside a particular widget in Invisible Selection?',
       a: 'A small number of modern web applications use closed "Shadow DOM" boundaries. Because Shadow DOM isolates internal styling, standard extension stylesheets cannot penetrate closed shadow roots. We are constantly improving our bypass strategies.'
     },
     {

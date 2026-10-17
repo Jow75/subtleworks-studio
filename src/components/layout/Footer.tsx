@@ -41,7 +41,17 @@ export const Footer: React.FC = () => {
                 <span className="footer-brand-title">SubtleWorks Studio</span>
               </div>
             </Link>
-            <div className="footer-parent-note">A Baziq Hue product studio</div>
+            <div className="footer-parent-note">
+              Product studio of{' '}
+              <a
+                href={STUDIO_METADATA.parentBrandUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: 'var(--cyan-primary)', textDecoration: 'underline' }}
+              >
+                BaziQ Hue
+              </a>
+            </div>
             <p className="footer-mission">
               A curated ecosystem of lightweight, hyper-focused Chrome extensions engineered to solve specific browser problems cleanly.
             </p>
@@ -80,18 +90,40 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Studio Column */}
+          {/* Studio & Ecosystem Column */}
           <div className="footer-col">
-            <h4 className="footer-heading">Studio & Trust</h4>
+            <h4 className="footer-heading">Studio &amp; Ecosystem</h4>
             <ul className="footer-links-list">
               <li>
                 <Link to="/about" className="footer-link">About SubtleWorks Studio</Link>
               </li>
               <li>
-                <Link to="/privacy" className="footer-link">Privacy & Permissions</Link>
+                <Link to="/privacy" className="footer-link">Privacy &amp; Permissions</Link>
               </li>
               <li>
-                <Link to="/support" className="footer-link">Support & FAQ</Link>
+                <Link to="/support" className="footer-link">Support &amp; FAQ</Link>
+              </li>
+              <li>
+                <a
+                  href={STUDIO_METADATA.universalClipboardUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="footer-link"
+                >
+                  <span>Universal Clipboard (App)</span>
+                  <ExternalLink size={12} />
+                </a>
+              </li>
+              <li>
+                <a
+                  href={STUDIO_METADATA.parentBrandUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="footer-link"
+                >
+                  <span>BaziQ Hue (Parent Brand)</span>
+                  <ExternalLink size={12} />
+                </a>
               </li>
               <li>
                 <a

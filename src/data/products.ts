@@ -65,9 +65,15 @@ export interface Product {
   extensionId: string;
   chromeStoreUrl: string;
   legacyStoreUrl: string;
+  /** Chrome Web Store reviews tab. Reviews are hosted by the store, never by this site. */
   reviewsUrl?: string;
+  /** The extension's own privacy policy, as registered on its store listing. */
+  privacyPolicyUrl?: string;
+  supportUrl?: string;
   icon: string;
   heroPreview: string;
+  /** 1200x630 image for link previews; falls back to heroPreview. */
+  socialImage?: string;
   badges: string[];
   highlights: { title: string; desc: string; iconName: string }[];
   features: ProductFeature[];
@@ -84,7 +90,7 @@ export interface Product {
   technicalLimitations: string[];
   screenshots: ProductScreenshot[];
   faq: ProductFAQ[];
-  demoType: 'phantom-typer' | 'invisible-selection';
+  demoType: 'phantom-typer' | 'invisible-selection' | 'snapflow-studio';
 }
 
 export const PRODUCTS: Product[] = [
@@ -94,165 +100,170 @@ export const PRODUCTS: Product[] = [
     aliases: ['human-typer-fast-speed', 'human-typing-simulator'],
     name: 'Phantom Typer — Human Typing Simulator',
     shortName: 'Phantom Typer',
-    tagline: 'Simulates genuine human keyboard typing with realistic cadences, natural pauses, and seamless automation.',
+    tagline: 'Save your text, pick a typing speed, and Phantom Typer types it into the web field or Google Doc you choose — one keystroke at a time.',
     shortDescription: 'Simulates human typing on websites with adjustable speeds, smart pauses, typo simulation, and natural automation.',
     fullDescription: [
-      'Phantom Typer is a high-precision Chrome extension engineered to inject text via genuine browser keyboard events (keydown, keypress, beforeinput, input, keyup) rather than standard instant paste.',
-      'Unlike conventional clipboard dumps that trigger anti-paste detectors or break custom canvas editors, Phantom Typer simulates authentic human typing character-by-character with natural hesitation, punctuation cadence, and optional typo correction.',
-      'Includes deep universal support across rich-text platforms, code editors, form fields, and a dedicated InputEvent engine for Google Docs.'
+      'Phantom Typer types your prepared text into the field you choose, one character at a time, using standard browser keyboard and input events (keydown, keypress, input, keyup) instead of a single instant paste.',
+      'You control the pace with six speed presets. Pro adds the Human Feel options: randomized delays, pauses at punctuation, and typo simulation that mistypes a neighbouring key and then corrects it.',
+      'It works in standard inputs, textareas and contenteditable editors, with a dedicated path for Google Docs. Custom editors that only accept real hardware keystrokes may not respond.'
     ],
     category: 'Automation',
     status: 'live',
     pricingType: 'freemium',
-    priceBadge: 'Free / Pro from $1.58/mo',
+    priceBadge: 'Free / Pro from $3.99/mo',
     version: '3.0.4',
     manifestVersion: 3,
     extensionId: 'koidkhdbocncjnleboodehmhedjjbafc',
     chromeStoreUrl: 'https://chromewebstore.google.com/detail/koidkhdbocncjnleboodehmhedjjbafc',
     legacyStoreUrl: 'https://chrome.google.com/webstore/detail/koidkhdbocncjnleboodehmhedjjbafc',
+    reviewsUrl: 'https://chromewebstore.google.com/detail/phantom-typer-%E2%80%94-human-typ/koidkhdbocncjnleboodehmhedjjbafc/reviews',
+    privacyPolicyUrl: 'https://phantom-typer.baziqhue.co.ke/privacy.html',
+    supportUrl: 'https://phantom-typer.baziqhue.co.ke/support.html',
     icon: '/assets/extensions/phantom-typer/icon128.png',
     heroPreview: '/assets/extensions/phantom-typer/hero-preview.png',
-    badges: ['v3.0.4', 'Manifest V3', 'Google Docs Engine'],
+    socialImage: '/assets/extensions/phantom-typer/og-image.png',
+    badges: ['v3.0.4', 'Manifest V3', 'Google Docs'],
     highlights: [
       {
-        title: 'Authentic Human Cadence',
-        desc: 'Customizable speeds with ±30% natural velocity variance and realistic punctuation pauses.',
+        title: 'Human Typing Pace',
+        desc: 'Six speed presets from Slow to Insane, with optional ±30% delay variation and pauses at punctuation on Pro.',
         iconName: 'Zap'
       },
       {
-        title: 'Google Docs Engine',
-        desc: 'Specialized InputEvent sequencing that directly bridges Google Docs canvas-rendered editor.',
+        title: 'Works in Google Docs',
+        desc: 'A dedicated typing path for Google Docs, started from the popup or the side panel.',
         iconName: 'FileText'
       },
       {
         title: 'Typo Simulation',
-        desc: 'Configurable human error rate with realistic adjacent QWERTY mistypes and backspace corrections.',
+        desc: 'Pro can mistype a neighbouring QWERTY key now and then, pause, and backspace to correct it.',
         iconName: 'Keyboard'
       },
       {
-        title: 'Chrome Side Panel & Shortcuts',
-        desc: 'Trigger with custom hotkeys (default Ctrl+Shift+Q) or manage text from the integrated side panel.',
+        title: 'Chrome Side Panel & Shortcut',
+        desc: 'Start with Ctrl+Shift+Q (the letter is configurable) or run sessions from the side panel.',
         iconName: 'Sliders'
       }
     ],
     features: [
       {
-        title: 'Adjustable WPM & Speed Tiers',
-        description: 'From deliberate human speeds (Slow, Normal) up to lightning-fast bursts (Fast, Ultra, Insane) with granular timing controls.',
+        title: 'Six Speed Presets',
+        description: 'Slow (120–160 ms per key) and Normal (50–80 ms) are included free. Fast, Very Fast, Ultra and Insane (down to 3–6 ms) are part of Pro.',
         iconName: 'Gauge',
         badge: 'Core'
       },
       {
-        title: 'Human Feel Engine',
-        description: 'Randomized character delays, realistic hesitation at commas and periods, and preservation of line breaks.',
+        title: 'Human Feel Options',
+        description: 'Randomized delays (±30%), pauses at commas and full stops, and extra timing variation. Keeping line breaks is available on Free.',
         iconName: 'HeartHandshake',
         badge: 'Pro'
       },
       {
         title: 'Typo & Auto-Correction Simulator',
-        description: 'Simulates authentic human mistakes by mistyping physical neighboring keys on the keyboard, pausing, and backspacing.',
+        description: 'Simulates human mistakes by mistyping a physically neighbouring key, pausing, and backspacing to fix it.',
         iconName: 'CornerDownLeft',
         badge: 'Pro'
       },
       {
-        title: 'Google Docs Canvas Support',
-        description: 'A dedicated multi-phase engine that coordinates with Docs text-target iframe for reliable character streaming.',
+        title: 'Google Docs Support',
+        description: 'Click inside the document and press Start Typing from the popup or side panel. The keyboard shortcut is not reliable inside Docs, so use the buttons there.',
         iconName: 'FileCode2',
-        badge: 'Pro'
+        badge: 'Core'
       },
       {
-        title: 'Mechanical Audio Feedback',
-        description: 'Synthesizes authentic mechanical and soft switch audio clicks in real-time via the Web Audio API.',
+        title: 'Keyboard Sounds',
+        description: 'Optional mechanical or soft key-click sounds, synthesized in the browser with the Web Audio API.',
         iconName: 'Volume2',
         badge: 'Pro'
       },
       {
-        title: 'Multi-Mode Text Insertion',
-        description: 'Support for "Always Type", "Replace Selected", "Append to Field", and "Type only if empty" workflows.',
+        title: 'Typing Modes',
+        description: 'Always Type, Replace (clear the field first), If Empty and If Content. The modes beyond Always Type are part of Pro.',
         iconName: 'Layers',
-        badge: 'Core'
+        badge: 'Pro'
       }
     ],
     howItWorks: [
       {
         step: 1,
-        title: 'Configure Your Text & Speed',
-        instruction: 'Open the Phantom Typer popup or side panel, paste or write your text, and pick your target typing cadence.'
+        title: 'Sign In & Save Your Text',
+        instruction: 'Open the Phantom Typer popup, create a free account or sign in, paste your text and click Save Text. Pick a speed on the Settings tab.'
       },
       {
         step: 2,
-        title: 'Focus Any Input Field',
-        instruction: 'Click inside any text field, code editor, Google Docs canvas, or web form on the active tab.'
+        title: 'Click Into a Field',
+        instruction: 'Click inside the text field, textarea, rich-text editor or Google Doc where the text should go.'
       },
       {
         step: 3,
-        title: 'Trigger with Shortcut or Panel',
-        instruction: 'Press your customizable keyboard shortcut (Ctrl+Shift+Q) or click Start Typing from the side panel.'
+        title: 'Start Typing',
+        instruction: 'Press Start Typing in the popup or side panel, or use the shortcut (Ctrl+Shift+Q by default) on regular pages.'
       },
       {
         step: 4,
-        title: 'Watch Natural Character Streaming',
-        instruction: 'Text streams into the element character-by-character with realistic key events, live pauses, and typo handling.'
+        title: 'Watch It Type — Stop Anytime',
+        instruction: 'Text appears character by character at your chosen speed. Press the shortcut again, click the page, or use Stop in the side panel to halt.'
       }
     ],
     targetAudiences: [
       {
         role: 'Developers & QA Engineers',
-        problem: 'Testing complex forms that require valid keyboard event sequences or reject sudden paste events.',
-        benefit: 'Automate realistic data entry and form verification without repetitive manual typing.'
+        problem: 'Testing forms that react to key and input events, which a single paste does not exercise.',
+        benefit: 'Replay realistic character-by-character entry without typing the same data by hand.'
       },
       {
         role: 'Content Creators & Tutorial Makers',
         problem: 'Awkward pauses or typing blunders during screen recordings, live streams, and course production.',
-        benefit: 'Stream flawless, natural-looking code and prose with zero recording stress.'
+        benefit: 'Record clean, natural-looking typing of code and prose without retakes.'
       },
       {
         role: 'Live Presenters & Product Demos',
         problem: 'Nerves or live typing errors while presenting slide demos, webinars, or software pitches.',
-        benefit: 'Trigger polished live text entry seamlessly on cue with a single hotkey.'
+        benefit: 'Trigger prepared text on cue with a single shortcut or button.'
       },
       {
         role: 'Form & Portal Users',
-        problem: 'Aggressive web portals with paste-blocking scripts that force users to type long inputs by hand.',
-        benefit: 'Simulate natural human keystrokes to comfortably enter your own saved text.'
+        problem: 'Web portals that block pasting and force long inputs to be typed by hand.',
+        benefit: 'Have your own saved text typed in for you, keystroke by keystroke.'
       }
     ],
     pricingTiers: [
       {
         id: 'free',
-        name: 'Free Starter',
+        name: 'Free',
         price: '$0',
-        period: 'forever',
+        period: '5 sessions included',
         highlight: false,
         features: [
-          'Core human typing simulator',
-          'Standard speed controls (Slow & Normal)',
-          'Works on inputs, textareas, and contenteditable',
-          'Standard popup interface',
-          'Local storage for draft text'
+          'Up to 5 typing sessions in total',
+          'Up to 500 characters per session',
+          'Slow and Normal speeds',
+          'Popup, side panel and Google Docs typing',
+          'Inputs, textareas and contenteditable editors',
+          'Free account required (email or Google sign-in)'
         ],
-        ctaText: 'Install Free on Chrome',
-        ctaSubtext: 'No credit card required'
+        ctaText: 'Install from Chrome Web Store',
+        ctaSubtext: 'No card required'
       },
       {
         id: 'yearly',
         name: 'Pro Yearly',
         price: '$18.99',
-        period: 'per year ($1.58/mo)',
+        period: 'per year',
         highlight: true,
         badge: 'Best Value — Save 60%',
         features: [
-          'All Free Starter features',
-          'Full Google Docs InputEvent Engine',
-          'Fast, Very Fast, Ultra & Insane speeds',
-          'Typo simulator with auto-backspace correction',
-          'Natural hesitation & punctuation pauses',
-          'Integrated Chrome Side Panel controls',
-          'Mechanical & soft keyboard audio clicks',
-          'Customizable global keyboard shortcuts'
+          'Unlimited typing sessions',
+          'Unlimited characters per session',
+          'All six speeds: adds Fast, Very Fast, Ultra & Insane',
+          'Human Feel: randomized delays, natural pauses & timing',
+          'Typo simulation with automatic correction',
+          'Keyboard sounds (mechanical or soft)',
+          'Replace, If Empty & If Content typing modes',
+          'Works out to about $1.58 per month'
         ],
-        ctaText: 'Upgrade to Pro Yearly',
-        ctaSubtext: 'Billed annually via Paystack'
+        ctaText: 'Install, then upgrade in the extension',
+        ctaSubtext: 'Billed yearly via Paystack'
       },
       {
         id: 'monthly',
@@ -261,121 +272,134 @@ export const PRODUCTS: Product[] = [
         period: 'per month',
         highlight: false,
         features: [
-          'All Pro features included',
-          'Google Docs support',
-          'All speed tiers unlocked',
-          'Typo simulation & smart pauses',
-          'Side panel floating controller',
-          'Mechanical sound effects',
-          'Cancel anytime with one click'
+          'Everything in Pro Yearly',
+          'Billed month to month',
+          'Cancel anytime by emailing support'
         ],
-        ctaText: 'Get Pro Monthly',
+        ctaText: 'Install, then upgrade in the extension',
         ctaSubtext: 'Billed monthly via Paystack'
       }
     ],
     permissions: [
       {
+        name: 'Site access: all sites',
+        required: true,
+        purpose: 'A small content script runs on the pages you open so it can hear your shortcut and type into the field you focus. Nothing from the page is sent anywhere. Firebase, Paystack and the Phantom Typer payment-verification API are also declared, for sign-in and billing.'
+      },
+      {
         name: 'storage',
         required: true,
-        purpose: 'Saves your typing speed, draft text, typo preferences, and license state locally in Chrome.'
+        purpose: 'Keeps your saved text, speed, settings, sign-in session and plan status in Chrome on your device.'
       },
       {
         name: 'activeTab',
         required: true,
-        purpose: 'Grants temporary permission to dispatch typing events into the currently focused webpage when you trigger the shortcut.'
+        purpose: 'Lets the popup and side panel act on the tab you are viewing when you press Start Typing.'
       },
       {
         name: 'scripting',
         required: true,
-        purpose: 'Allows injecting the typing simulator runner into your active tab when you initiate typing.'
+        purpose: 'Injects a helper into Google Docs pages so typed text reaches the Docs editor.'
       },
       {
         name: 'sidePanel',
         required: true,
-        purpose: 'Displays the convenient side panel controller alongside your active webpage.'
+        purpose: 'Shows the side panel controller beside the page you are working on.'
       },
       {
         name: 'alarms',
         required: true,
-        purpose: 'Periodically refreshes license status in the background.'
+        purpose: 'Re-checks your Pro status in the background about every 30 minutes.'
       },
       {
         name: 'clipboardWrite',
-        required: false,
-        purpose: 'Optional helper for placing snippets on your clipboard upon explicit action.'
+        required: true,
+        purpose: 'On Google Docs only: copies your saved text to the clipboard when you press Start Typing, as a fallback way to insert it.'
       },
       {
         name: 'identity',
-        required: false,
-        purpose: 'Facilitates optional Google Sign-in to synchronize your Pro license across your Chrome instances.'
+        required: true,
+        purpose: 'Used only for "Continue with Google" sign-in.'
       }
     ],
     privacy: {
       is100PercentOffline: false,
-      dataStorage: 'Draft text and settings are stored strictly in local Chrome storage. We never log or transmit the text you type.',
+      dataStorage: 'Saved text and settings stay in local Chrome storage. The text you type is never sent to Phantom Typer servers.',
       externalRequests: [
-        'Firebase Auth & Firestore (for user authentication and Pro subscription state)',
-        'Paystack (secure payment processing for Pro upgrades)',
-        'phantom-typer-api.vercel.app (license verification webhook)'
+        'Firebase Authentication & Firestore (sign-in, plan status and the free-session count)',
+        'Paystack (payment processing for Pro upgrades)',
+        'phantom-typer-api.vercel.app (payment verification)',
+        'Google Fonts (the popup loads its typeface)'
       ],
-      guarantee: 'Phantom Typer never transmits your typed content, passwords, or personal webpage interactions to our servers. Network requests are strictly limited to license verification and account authentication.'
+      guarantee: 'The text you save stays in Chrome storage on your device and is never sent to Phantom Typer servers. Network requests are limited to sign-in (your email and password go to Firebase Authentication, a Google service), your plan status and free-session count, and payment verification. Phantom Typer does not collect browsing history or page content.'
     },
     technicalLimitations: [
-      'Chrome restricts all extensions from running inside Chrome internal pages (chrome://settings, chrome://extensions) and the Chrome Web Store.',
-      'Google Docs requires the Pro InputEvent engine due to its custom canvas-rendering architecture.'
+      'Chrome blocks every extension on its internal pages (chrome://…) and on the Chrome Web Store, so Phantom Typer cannot type there.',
+      'Inside Google Docs the keyboard shortcut is unreliable — use Start Typing in the popup or side panel instead.',
+      'Text is typed with simulated key events. Custom editors and widgets that only accept real hardware keystrokes may ignore it.',
+      'Typing slows to roughly one character per second while its tab is in the background, because Chrome throttles timers in hidden tabs. Keep the tab visible while it types.',
+      'A free account and sign-in are required before typing.'
     ],
     screenshots: [
       {
         src: '/assets/extensions/phantom-typer/screenshot-01-popup.png',
-        title: 'Popup Typing Composer',
-        caption: 'Compose your text, select target speed, and review character counts before triggering.',
+        title: 'Popup: Write Tab',
+        caption: 'Paste your text, save it, and press Start Typing. The character and word counts update as you type.',
         tag: 'Popup'
       },
       {
         src: '/assets/extensions/phantom-typer/screenshot-02-gdocs.png',
-        title: 'Google Docs Side Panel',
-        caption: 'Use the integrated side panel alongside Google Docs with play, pause, and speed adjustments.',
+        title: 'Side Panel Beside Google Docs',
+        caption: 'The side panel stays open next to the document with its own speed selector and the saved text.',
         tag: 'Side Panel'
       },
       {
         src: '/assets/extensions/phantom-typer/screenshot-03-speed.png',
-        title: 'Granular Speed & Cadence Settings',
-        caption: 'Customize WPM, delay variance, hesitation at punctuation, and typo simulation intensity.',
+        title: 'Speed, Mode & Human Feel Settings',
+        caption: 'Six speed presets, four typing modes, and the Human Feel toggles: randomized delays, natural pauses, typo simulation and keyboard sounds.',
         tag: 'Settings'
       },
       {
         src: '/assets/extensions/phantom-typer/screenshot-04-controls.png',
-        title: 'Live Side Panel Controls',
-        caption: 'Full playback controls with real-time character progress bar and abort button.',
+        title: 'Side Panel Controls',
+        caption: 'Save Text, Clear, Start Typing and Stop, with a built-in how-to.',
         tag: 'Side Panel'
       },
       {
         src: '/assets/extensions/phantom-typer/screenshot-05-pricing.png',
-        title: 'Pro Upgrade & Licensing',
-        caption: 'Transparent pricing with monthly and yearly plans powered by Paystack.',
+        title: 'Upgrade Page',
+        caption: 'Free, Monthly and Yearly plans. Payments are handled by Paystack.',
         tag: 'Pricing'
       }
     ],
     faq: [
       {
         question: 'How do I start typing on a page?',
-        answer: 'Open the Phantom Typer popup or side panel, enter your desired text, set your speed, click into any input field on the page, and press your hotkey (default: Ctrl+Shift+Q).'
+        answer: 'Sign in from the popup, paste your text and click Save Text. Click into a field on the page, then press Start Typing in the popup or side panel — or press the shortcut (Ctrl+Shift+Q by default) on regular pages.'
+      },
+      {
+        question: 'Do I need an account?',
+        answer: 'Yes. A free account (email and password, or Google sign-in) is required before typing, so the free limits and Pro access can be applied to you.'
       },
       {
         question: 'Does Phantom Typer store or send what I type?',
-        answer: 'No. The text you enter is saved strictly in local Chrome extension storage on your computer. Phantom Typer never reads, monitors, logs, or transmits your keystrokes.'
+        answer: 'No. The text you save stays in Chrome extension storage on your computer and is not sent to Phantom Typer servers. The extension does not log your keystrokes or read the pages you visit. Your account email, plan status and free-session count are stored in Firebase.'
       },
       {
         question: 'How does it work with Google Docs?',
-        answer: 'Google Docs renders text using a custom canvas rather than standard HTML inputs. Phantom Typer includes a dedicated InputEvent sequence engine (available in Pro) that reliably communicates with the Docs canvas event target.'
+        answer: 'Click inside the document, then press Start Typing from the popup or — recommended — the side panel, which stays open beside the doc and has a Stop button. The keyboard shortcut may not work inside Docs. Google Docs typing is included in the free plan, within the free limits.'
       },
       {
         question: 'Can I change the keyboard shortcut?',
-        answer: 'Yes. In the Settings tab of the extension popup, you can customize the shortcut trigger to any letter combination (e.g. Ctrl+Shift+A through Z).'
+        answer: 'Yes. On the Settings tab of the popup you can change the letter used with Ctrl+Shift (the default is Q).'
       },
       {
         question: 'What is the difference between Free and Pro?',
-        answer: 'Free includes standard speeds (Slow and Normal) for standard inputs. Pro unlocks Google Docs support, high-speed modes (Fast, Very Fast, Ultra, Insane), typo simulation, natural pauses, mechanical keyboard audio, and the Chrome side panel controller.'
+        answer: 'Free includes Slow and Normal speeds, up to 5 typing sessions in total, and up to 500 characters per session. Pro ($3.99 a month or $18.99 a year) removes the session and character limits and adds the Fast, Very Fast, Ultra and Insane speeds, the Human Feel options (randomized delays, natural pauses, typo simulation, keyboard sounds) and the extra typing modes.'
+      },
+      {
+        question: 'How do I upgrade or cancel?',
+        answer: 'Upgrade from inside the extension (Account tab), which opens a Paystack checkout. To cancel or ask about a charge, email support with the address you signed up with.'
       }
     ],
     demoType: 'phantom-typer'
@@ -397,12 +421,15 @@ export const PRODUCTS: Product[] = [
     status: 'live',
     pricingType: 'free',
     priceBadge: '100% Free & Offline',
-    version: '1.0.1',
+    // Keep in step with the version shown on the Chrome Web Store listing
+    version: '1.0.0',
     manifestVersion: 3,
     extensionId: 'pddfpjmkodjaobcaieajifcpcmpojlbo',
     chromeStoreUrl: 'https://chromewebstore.google.com/detail/pddfpjmkodjaobcaieajifcpcmpojlbo',
     legacyStoreUrl: 'https://chrome.google.com/webstore/detail/pddfpjmkodjaobcaieajifcpcmpojlbo',
     reviewsUrl: 'https://chromewebstore.google.com/detail/invisible-selection/pddfpjmkodjaobcaieajifcpcmpojlbo/reviews',
+    privacyPolicyUrl: 'https://invisible-selection.baziqhue.co.ke/privacy.html',
+    supportUrl: 'https://invisible-selection.baziqhue.co.ke/support.html',
     icon: '/assets/extensions/invisible-selection/icon128.png',
     heroPreview: '/assets/extensions/invisible-selection/screenshot-01-active.png',
     badges: ['100% Free', 'Manifest V3', '100% Offline', 'Zero Data Collection'],
@@ -533,6 +560,11 @@ export const PRODUCTS: Product[] = [
     ],
     permissions: [
       {
+        name: 'Site access: all sites',
+        required: true,
+        purpose: 'Injects one small stylesheet into the pages you open to hide the selection highlight. It does not read, change or send page content.'
+      },
+      {
         name: 'storage',
         required: true,
         purpose: 'Stores your single ON/OFF preference setting and syncs it across your Chrome browser profiles.'
@@ -583,7 +615,7 @@ export const PRODUCTS: Product[] = [
       },
       {
         question: 'Does this extension collect any data?',
-        answer: 'None whatsoever. Invisible Selection makes zero network requests and contains no tracking scripts. The only stored item is your ON/OFF toggle state in Chrome local storage.'
+        answer: 'None whatsoever. Invisible Selection makes zero network requests and contains no tracking scripts. The only stored item is your ON/OFF toggle state, kept in Chrome sync storage.'
       },
       {
         question: 'Why does it say it needs access to webpages?',
@@ -599,6 +631,238 @@ export const PRODUCTS: Product[] = [
       }
     ],
     demoType: 'invisible-selection'
+  },
+  {
+    id: 'snapflow-studio',
+    slug: 'snapflow-studio',
+    aliases: ['snap-flow-studio', 'snapflow', 'chrome-screenshot-studio'],
+    name: 'Snap Flow Studio — Privacy-First Screenshot & Full-Page Capture',
+    shortName: 'Snap Flow Studio',
+    tagline: 'Capture full webpages, scrolling panels, and custom regions with seamless stitching, vector annotations, and 100% local processing.',
+    shortDescription: 'Privacy-first screenshot engine with seamless full-page stitching, smart scrolling panel capture, vector annotations, destructive redaction, and smart-split multi-page PDF export.',
+    fullDescription: [
+      'Snap Flow Studio scrolls, aligns, and stitches full web documents, scrolling chat threads, and custom regions with zero visible seams. Fractional subpixel compensation completely eliminates white horizontal seams between tiles.',
+      'The built-in studio lets you edit captures directly in your browser. Annotate with vector arrows, boxes, text, and an authentic Unicode emoji picker across 9 categories. To protect sensitive passwords or credit card numbers, destructive redaction permanently replaces underlying pixels with high-entropy noise masks so original data can never be digitally recovered.',
+      '100% client-side image processing. No analytics beacons, no tracking pixels, zero server uploads, and activeTab least-privilege security. Captures stay on your device in local IndexedDB.'
+    ],
+    category: 'Productivity',
+    status: 'live',
+    pricingType: 'free',
+    priceBadge: '100% Free & Private',
+    version: '1.1.0',
+    manifestVersion: 3,
+    extensionId: 'snapflow-studio',
+    chromeStoreUrl: 'https://snapflow-studio-app.netlify.app/',
+    legacyStoreUrl: 'https://snapflow-studio-app.netlify.app/',
+    reviewsUrl: 'https://snapflow-studio-app.netlify.app/#faq',
+    privacyPolicyUrl: 'https://snapflow-studio-app.netlify.app/privacy',
+    supportUrl: 'https://snapflow-studio-app.netlify.app/support',
+    icon: '/assets/extensions/snapflow-studio/icon128.png',
+    heroPreview: '/assets/extensions/snapflow-studio/hero-preview.png',
+    socialImage: '/assets/extensions/snapflow-studio/screenshot-01-hero.png',
+    badges: ['100% Free', 'Manifest V3', 'Zero Seams', 'Smart-Split PDF', 'Zero Telemetry'],
+    highlights: [
+      {
+        title: 'Seamless Full-Page Composite',
+        desc: 'Fractional subpixel compensation completely eliminates white horizontal seams between tiles.',
+        iconName: 'Camera'
+      },
+      {
+        title: 'Four Dedicated Capture Engines',
+        desc: 'Full Page (Alt+Shift+S), Visible Area (Alt+Shift+V), Selected Marquee, and Nested Scrolling Containers.',
+        iconName: 'Layers'
+      },
+      {
+        title: 'True Destructive Redaction',
+        desc: 'Permanently wipes underlying pixel data with high-entropy noise masks so original data can never be digitally recovered.',
+        iconName: 'ShieldCheck'
+      },
+      {
+        title: 'Smart-Split Multi-Page PDF',
+        desc: 'Automatic horizontal whitespace scanning prevents lines of text from being sliced in half across pages.',
+        iconName: 'FileText'
+      }
+    ],
+    features: [
+      {
+        title: 'Four Dedicated Capture Engines',
+        description: 'Independent calibrated paths for Full Page, Visible Viewport, Interactive Marquee Crop, and Inner Scrolling Containers (e.g., chat logs and code panels).',
+        iconName: 'Layers',
+        badge: 'Core'
+      },
+      {
+        title: 'Deterministic Linear Undo & Redo',
+        description: 'Every annotation, shape mutation, and sticker placement is recorded in a linear history stack. Undo reaches all the way back to the initial capture.',
+        iconName: 'RotateCcw',
+        badge: 'Studio'
+      },
+      {
+        title: 'True Destructive Redaction',
+        description: 'Irreversible raster pixel destruction with high-entropy noise masks, mosaic pixelation, and Gaussian blur for sensitive credentials and financial data.',
+        iconName: 'ShieldCheck',
+        badge: 'Privacy'
+      },
+      {
+        title: 'Smart-Split Multi-Page PDF Export',
+        description: 'Outputs standard A4 and US Letter multi-page PDFs locally. Analyzes whitespace gutters to automatically place page breaks cleanly between paragraphs.',
+        iconName: 'FileText',
+        badge: 'Export'
+      },
+      {
+        title: 'Comprehensive Unicode Emoji Library',
+        description: 'Search and place native system emojis across all 9 standard categories without downloading external fonts or tracking scripts.',
+        iconName: 'Smile',
+        badge: 'Stickers'
+      },
+      {
+        title: 'Independent Metadata Watermarking',
+        description: 'Preserves verified source URL and capture timestamps, with independent placement controls (Top, Bottom, or None).',
+        iconName: 'Link',
+        badge: 'Metadata'
+      }
+    ],
+    howItWorks: [
+      {
+        step: 1,
+        title: 'Select Capture Mode',
+        instruction: 'Click the Snap Flow Studio toolbar icon or press Alt+Shift+S (Full Page) or Alt+Shift+V (Visible Area).'
+      },
+      {
+        step: 2,
+        title: 'Automatic Page Scrolling & Stitching',
+        instruction: 'The extension measures scrollable extents, scrolls page segments, and stitches the composite with subpixel seam elimination.'
+      },
+      {
+        step: 3,
+        title: 'Annotate, Redact & Style',
+        instruction: 'Add vector arrows, boxes, text labels, and emoji stickers. Apply irreversible noise redaction to sensitive text or numbers.'
+      },
+      {
+        step: 4,
+        title: 'Export Locally or Copy to Clipboard',
+        instruction: 'Export to lossless PNG, JPEG, modern WebP, smart-split multi-page PDF, or 1-click system clipboard copy.'
+      }
+    ],
+    targetAudiences: [
+      {
+        role: 'Product Managers & QA Engineers',
+        problem: 'Splicing screenshots of long web dashboards or bug reproduction steps with misaligned seams and blurred text.',
+        benefit: 'Capture high-DPI full-page composites and annotate defect reports with pixel-perfect clarity.'
+      },
+      {
+        role: 'Technical Writers & Content Creators',
+        problem: 'Documentation screenshots that clumsily slice across paragraphs or expose sensitive credentials.',
+        benefit: 'Create publication-ready guides with vector arrows and irreversible noise redaction.'
+      },
+      {
+        role: 'Privacy & Compliance Officers',
+        problem: 'Third-party screenshot extensions sending proprietary internal data or screenshots to remote cloud servers.',
+        benefit: '100% client-side architecture guarantees zero data leaves your local machine.'
+      },
+      {
+        role: 'Designers & Developers',
+        problem: 'Taking multiple fragmented screenshots of nested scrollable panels and chat widgets.',
+        benefit: 'Target inner scrolling containers with dedicated container detection in one seamless capture.'
+      }
+    ],
+    pricingTiers: [
+      {
+        id: 'free',
+        name: '100% Free & Private',
+        price: '$0',
+        period: 'free forever',
+        highlight: true,
+        badge: 'Zero Telemetry • No Accounts',
+        features: [
+          'Full-page, visible area, marquee, and scroll container captures',
+          'Fractional subpixel seam elimination',
+          'Full Studio editor with vector arrows, boxes, and text',
+          'Destructive noise redaction, mosaic blur, and pixelation',
+          '9-category Unicode emoji sticker picker',
+          'Smart-split multi-page PDF export (A4 & Letter)',
+          'Lossless PNG, JPEG, and WebP downloads',
+          '1-click direct system clipboard copy',
+          '100% client-side processing — zero server uploads'
+        ],
+        ctaText: 'Open Snap Flow Studio',
+        ctaSubtext: 'Free Web App & Chrome Extension'
+      }
+    ],
+    permissions: [
+      {
+        name: 'activeTab',
+        required: true,
+        purpose: 'Runs capture routines strictly on the active tab you explicitly trigger. Never monitors background tabs or history.'
+      },
+      {
+        name: 'scripting',
+        required: true,
+        purpose: 'Measures document scroll heights and coordinates interactive marquee selection boxes on the webpage.'
+      },
+      {
+        name: 'storage',
+        required: true,
+        purpose: 'Stores your studio UI preferences (default export format, watermark placement) and manages local IndexedDB captures.'
+      }
+    ],
+    privacy: {
+      is100PercentOffline: true,
+      dataStorage: 'Captures are saved in browser IndexedDB on your own computer (keeps 10 most recent). Zero cloud uploads.',
+      externalRequests: [],
+      guarantee: 'Snap Flow Studio does not operate cloud image-rendering servers or analytics beacons. Every capture, stitch, annotation, and export happens 100% inside your local Chrome browser session.'
+    },
+    technicalLimitations: [
+      'Cannot execute on internal Chrome pages (chrome://, edge://, about:) or the Chrome Web Store gallery due to browser security restrictions.',
+      'Extremely tall documents (>40,000px) are bounded by browser canvas memory limits.',
+      'Dynamic sticky navigation headers require scroll synchronization to avoid duplicated header bars.'
+    ],
+    screenshots: [
+      {
+        src: '/assets/extensions/snapflow-studio/screenshot-01-hero.png',
+        title: 'Seamless Capture & Stitching',
+        caption: 'Full-page composite with subpixel DPR seam elimination, 4 capture modes, and high-DPI output.',
+        tag: 'Capture'
+      },
+      {
+        src: '/assets/extensions/snapflow-studio/screenshot-02-editor.png',
+        title: 'Built-in Studio Editor',
+        caption: 'Vector arrows, boxes, text labels, destructive noise redaction, and emoji sticker library.',
+        tag: 'Studio'
+      },
+      {
+        src: '/assets/extensions/snapflow-studio/screenshot-03-workflow.png',
+        title: 'Workflow & Multi-Page Export',
+        caption: 'Deterministic undo/redo history, lossless PNG/JPEG/WebP export, and smart-split multi-page PDF.',
+        tag: 'Export'
+      }
+    ],
+    faq: [
+      {
+        question: 'Is Snap Flow Studio free?',
+        answer: 'Yes. Snap Flow Studio is completely free. There are no paywalls, hidden watermark locks, or subscription requirements.'
+      },
+      {
+        question: 'Where are screenshots stored and processed?',
+        answer: 'Screenshots are processed in your browser and saved in local IndexedDB storage on your computer. Only your 10 most recent captures are kept, and closing the Studio tab does not delete them. They are never sent to any remote server or third-party cloud.'
+      },
+      {
+        question: 'Does Snap Flow Studio track my browsing history?',
+        answer: 'No. Snap Flow Studio operates under the activeTab permission model. It only inspects the active browser tab when you click a capture action, and never monitors other tabs or history.'
+      },
+      {
+        question: 'Why can internal browser pages not be captured?',
+        answer: 'Google Chrome enforces strict security restrictions blocking all extensions from running content scripts on internal pages (chrome://, edge://, about:) and the Chrome Web Store gallery.'
+      },
+      {
+        question: 'Which export formats are supported?',
+        answer: 'You can copy directly to your system clipboard as PNG, download Lossless PNG, compressed JPEG, modern WebP, or generate multi-page Smart-Split PDF files.'
+      },
+      {
+        question: 'How does Smart-Split PDF avoid cutting text lines?',
+        answer: 'Before dividing tall images across pages, the exporter analyzes horizontal pixel gutters to detect whitespace between paragraphs, placing page breaks naturally in empty gutters.'
+      }
+    ],
+    demoType: 'snapflow-studio'
   }
 ];
 
@@ -609,7 +873,10 @@ export const STUDIO_METADATA = {
   tagline: 'Precision browser extensions. Zero bloat, zero tracking, total control.',
   subheading: 'SubtleWorks Studio is a Baziq Hue product studio building lightweight, hyper-focused Chrome extensions engineered to solve specific browser problems cleanly.',
   supportEmail: 'gmuraguri75@gmail.com',
-  storeDeveloperUrl: 'https://chromewebstore.google.com',
+  storeDeveloperUrl: 'https://chromewebstore.google.com/search/subtleworks%20studio',
+  parentBrandUrl: 'https://baziqhue.co.ke',
+  studioUrl: 'https://subtleworks-studio.baziqhue.co.ke',
+  universalClipboardUrl: 'https://universal-clipboard.baziqhue.co.ke',
   principles: [
     {
       title: 'Hyper-Focused Utility',
@@ -622,8 +889,8 @@ export const STUDIO_METADATA = {
       iconName: 'ShieldCheck'
     },
     {
-      title: 'Sub-Millisecond Performance',
-      desc: 'Lightweight codebases built without bloated dependencies, ensuring zero lag, zero battery drain, and instant startup.',
+      title: 'Lightweight Performance',
+      desc: 'Small codebases built without bloated dependencies, so they stay out of the way of the pages you use.',
       iconName: 'Zap'
     },
     {
@@ -634,7 +901,7 @@ export const STUDIO_METADATA = {
   ],
   stats: [
     { label: 'Manifest V3 Architecture', value: '100%' },
-    { label: 'Ecosystem Extensions', value: '2 Live' },
+    { label: 'Ecosystem Extensions', value: '3 Live' },
     { label: 'Unnecessary Bloat', value: '0%' },
     { label: 'Telemetry/Ad Trackers', value: 'Zero' }
   ]

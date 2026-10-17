@@ -165,6 +165,64 @@ export const PrivacyPage: React.FC = () => {
                 </div>
               </div>
             </div>
+
+            {/* Snap Flow Studio Audit */}
+            <div className="extension-audit-block glass-panel">
+              <div className="audit-block-header">
+                <img
+                  src="/assets/extensions/snapflow-studio/icon128.png"
+                  alt="Snap Flow Studio"
+                  className="audit-icon"
+                  onError={(e) => {
+                    (e.currentTarget as HTMLImageElement).src = '/favicon.svg';
+                  }}
+                />
+                <div>
+                  <h3 className="audit-tool-name">Snap Flow Studio (v1.1.0)</h3>
+                  <span className="badge badge-free">100% Client-Side • Zero Telemetry</span>
+                </div>
+              </div>
+
+              <div className="audit-text-block">
+                <h4>Local-First Capture &amp; Image Processing</h4>
+                <p>
+                  Snap Flow Studio performs 100% of its scroll measurement, frame capture, subpixel stitching, and raster annotation inside your local browser session.
+                  <strong>Your screenshots are never uploaded to any remote server or cloud rendering service.</strong>
+                </p>
+              </div>
+
+              <div className="audit-text-block">
+                <h4>True Destructive Redaction</h4>
+                <p>
+                  When you use the Redaction tool in the Studio editor, underlying pixels are irreversibly destroyed and replaced with high-entropy noise patterns. On PNG, JPEG, WebP, or multi-page PDF export, redacted areas are permanently flattened so no extractable text or visual data remains underneath.
+                </p>
+              </div>
+
+              <div className="audit-text-block">
+                <h4>Local Storage &amp; Auto-Purging</h4>
+                <p>
+                  Captures are saved in your browser's private local IndexedDB database. Snap Flow Studio only keeps your 10 most recent captures; older captures are deleted automatically to protect local storage space.
+                </p>
+              </div>
+
+              <div className="audit-text-block">
+                <h4>Declared Permissions &amp; Least Privilege</h4>
+                <div className="perm-table">
+                  <div className="perm-table-row">
+                    <code>activeTab</code>
+                    <span>Invoked strictly on the active tab when you trigger a capture shortcut or button. Zero background browsing monitoring.</span>
+                  </div>
+                  <div className="perm-table-row">
+                    <code>scripting</code>
+                    <span>Coordinates document scroll positions and interactive crop marquee overlays on the webpage.</span>
+                  </div>
+                  <div className="perm-table-row">
+                    <code>storage</code>
+                    <span>Saves your local studio preferences (e.g. watermark placement, default export format) in local storage.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Privacy Contact */}

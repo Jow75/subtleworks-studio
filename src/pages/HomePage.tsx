@@ -18,12 +18,13 @@ import { PRODUCTS, STUDIO_METADATA } from '../data/products';
 import { ProductCard } from '../components/common/ProductCard';
 import { PhantomTyperDemo } from '../components/demos/PhantomTyperDemo';
 import { InvisibleSelectionDemo } from '../components/demos/InvisibleSelectionDemo';
+import { SnapFlowStudioDemo } from '../components/demos/SnapFlowStudioDemo';
 import './HomePage.css';
 
 export const HomePage: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState<'all' | 'free' | 'freemium'>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
-  const [heroDemoTab, setHeroDemoTab] = useState<'phantom' | 'invisible'>('phantom');
+  const [heroDemoTab, setHeroDemoTab] = useState<'snapflow' | 'phantom' | 'invisible'>('snapflow');
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
 
   // Filter products based on search and category
@@ -53,7 +54,7 @@ export const HomePage: React.FC = () => {
     },
     {
       q: 'Do any of your extensions sell browsing data or run background miners?',
-      a: 'Never. Our core philosophy is radical anti-bloat. Invisible Selection makes zero network requests and runs 100% offline. Phantom Typer only communicates with Google Firebase and Paystack to manage accounts and Pro licenses. Keystrokes and webpage content are never logged or transmitted.'
+      a: 'Never. Our core philosophy is radical anti-bloat. Invisible Selection and Snap Flow Studio run 100% client-side with zero telemetry and zero server uploads. Phantom Typer only communicates with Google Firebase and Paystack to manage user accounts and Pro licenses. Keystrokes, screenshot tiles, and webpage contents are never logged or sold.'
     },
     {
       q: 'Are these extensions compatible with Brave, Edge, Opera, or Arc?',
@@ -118,6 +119,14 @@ export const HomePage: React.FC = () => {
               <div className="showcase-tab-pills">
                 <button
                   type="button"
+                  className={`showcase-tab-btn ${heroDemoTab === 'snapflow' ? 'active' : ''}`}
+                  onClick={() => setHeroDemoTab('snapflow')}
+                >
+                  <span className="dot dot-green" />
+                  Snap Flow Studio
+                </button>
+                <button
+                  type="button"
                   className={`showcase-tab-btn ${heroDemoTab === 'phantom' ? 'active' : ''}`}
                   onClick={() => setHeroDemoTab('phantom')}
                 >
@@ -136,7 +145,14 @@ export const HomePage: React.FC = () => {
             </div>
 
             <div className="showcase-demo-container">
-              {heroDemoTab === 'phantom' ? (
+              {heroDemoTab === 'snapflow' ? (
+                <div>
+                  <div className="demo-caption-top">
+                    <strong>Snap Flow Studio:</strong> 4 independent capture engines with seamless subpixel stitching, vector annotations, and true destructive noise redaction.
+                  </div>
+                  <SnapFlowStudioDemo />
+                </div>
+              ) : heroDemoTab === 'phantom' ? (
                 <div>
                   <div className="demo-caption-top">
                     <strong>Phantom Typer:</strong> Dispatches real keyboard events character-by-character with natural velocity variance and typo backspacing.
@@ -254,6 +270,78 @@ export const HomePage: React.FC = () => {
                 <Link to="/support" className="btn btn-outline btn-sm" style={{ width: '100%' }}>
                   Suggest an Extension Idea
                 </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3B. BAZIQ HUE ECOSYSTEM APPS SPOTLIGHT (Universal Clipboard) */}
+      <section className="ecosystem-spotlight-section">
+        <div className="container">
+          <div className="ecosystem-banner glass-panel">
+            <div className="ecosystem-badge-row">
+              <span className="badge badge-parent-brand">
+                <Sparkles size={12} className="text-cyan" />
+                From the BaziQ Hue Ecosystem
+              </span>
+              <a
+                href="https://baziqhue.co.ke"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ecosystem-parent-link"
+              >
+                <span>baziqhue.co.ke</span>
+                <ExternalLink size={12} />
+              </a>
+            </div>
+
+            <div className="ecosystem-grid">
+              <div className="ecosystem-info">
+                <div className="ecosystem-app-brand">
+                  <img
+                    src="/assets/apps/universal-clipboard/icon.png"
+                    alt="Universal Clipboard Icon"
+                    className="ecosystem-app-icon"
+                    onError={(e) => {
+                      (e.currentTarget as HTMLImageElement).src = '/favicon.svg';
+                    }}
+                  />
+                  <div>
+                    <span className="ecosystem-label">Desktop &amp; Mobile App</span>
+                    <h3 className="ecosystem-title">Universal Clipboard Sync</h3>
+                  </div>
+                </div>
+
+                <p className="ecosystem-tagline">
+                  "Your clipboard. Every device. Less friction."
+                </p>
+
+                <p className="ecosystem-desc">
+                  Seamlessly bridges your Windows PC and multiple Android phones over local Wi-Fi. Copy text, links, or snippets on one device and paste on another instantly. Zero accounts, zero cloud middlemen, 100% private, and completely free.
+                </p>
+
+                <div className="ecosystem-features-list">
+                  <span className="badge badge-offline">Windows Desktop (.exe)</span>
+                  <span className="badge badge-offline">Android APK</span>
+                  <span className="badge badge-offline">Local Wi-Fi Sync</span>
+                  <span className="badge badge-offline">100% Free &amp; Private</span>
+                </div>
+              </div>
+
+              <div className="ecosystem-actions-col">
+                <a
+                  href="https://universal-clipboard.baziqhue.co.ke"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-primary btn-lg ecosystem-btn"
+                >
+                  <span>Explore Universal Clipboard</span>
+                  <ExternalLink size={16} />
+                </a>
+                <span className="ecosystem-subtext">
+                  Direct download available for Windows &amp; Android
+                </span>
               </div>
             </div>
           </div>

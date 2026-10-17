@@ -20,6 +20,7 @@ import {
 import { getProductBySlug } from '../data/products';
 import { PhantomTyperDemo } from '../components/demos/PhantomTyperDemo';
 import { InvisibleSelectionDemo } from '../components/demos/InvisibleSelectionDemo';
+import { SnapFlowStudioDemo } from '../components/demos/SnapFlowStudioDemo';
 import { ScreenshotGallery } from '../components/common/ScreenshotGallery';
 import { CrossPromotion } from '../components/common/CrossPromotion';
 import './ProductDetailPage.css';
@@ -146,7 +147,11 @@ export const ProductDetailPage: React.FC = () => {
                 product.demoType === 'phantom-typer' ? (
                   <PhantomTyperDemo />
                 ) : (
+                product.demoType === 'invisible-selection' ? (
                   <InvisibleSelectionDemo />
+                ) : (
+                  <SnapFlowStudioDemo />
+                )
                 )
               ) : (
                 <div className="hero-preview-frame glass-panel">

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ShieldCheck, Zap, Sparkles, Terminal, ArrowRight } from 'lucide-react';
+import { ShieldCheck, Zap, Sparkles, Terminal, ArrowRight, ExternalLink } from 'lucide-react';
 import './AboutPage.css';
 
 export const AboutPage: React.FC = () => {
@@ -37,21 +37,42 @@ export const AboutPage: React.FC = () => {
             <h2 className="brand-arch-title">Baziq Hue &amp; SubtleWorks Studio</h2>
             <div className="brand-arch-grid">
               <div className="brand-arch-col">
-                <span className="brand-tier-badge badge-parent">Parent Brand</span>
-                <h3 className="brand-entity-name">Baziq Hue</h3>
+                <span className="brand-tier-badge badge-parent">Parent Company</span>
+                <h3 className="brand-entity-name">
+                  <a
+                    href="https://baziqhue.co.ke"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ color: 'inherit', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px' }}
+                  >
+                    <span>Baziq Hue</span>
+                    <ExternalLink size={16} className="text-cyan" />
+                  </a>
+                </h3>
                 <p className="brand-entity-desc">
-                  Baziq Hue is the parent brand behind SubtleWorks Studio.
+                  Baziq Hue is the parent digital studio behind SubtleWorks Studio and the Universal Clipboard cross-device ecosystem.
                 </p>
+                <div style={{ marginTop: '0.75rem' }}>
+                  <a
+                    href="https://baziqhue.co.ke"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-outline btn-sm"
+                  >
+                    <span>Visit baziqhue.co.ke</span>
+                    <ExternalLink size={12} />
+                  </a>
+                </div>
               </div>
               <div className="brand-arch-divider" aria-hidden="true">
                 <div className="brand-arch-line" />
                 <span className="brand-arch-arrow">↓</span>
               </div>
               <div className="brand-arch-col">
-                <span className="brand-tier-badge badge-studio">Product Studio</span>
+                <span className="brand-tier-badge badge-studio">Browser Product Studio</span>
                 <h3 className="brand-entity-name">SubtleWorks Studio</h3>
                 <p className="brand-entity-desc">
-                  SubtleWorks Studio is the focused product studio creating lightweight, purpose-built browser tools and Chrome extensions.
+                  SubtleWorks Studio is the focused product studio creating lightweight, purpose-built browser tools and Chrome extensions (Snap Flow Studio, Phantom Typer, Invisible Selection).
                 </p>
               </div>
             </div>

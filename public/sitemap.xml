@@ -1,39 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://subtleworks.app/</loc>
-    <lastmod>2026-10-04</lastmod>
+    <loc>https://subtleworks-studio.baziqhue.co.ke/</loc>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://subtleworks.app/extensions/phantom-typer</loc>
-    <lastmod>2026-10-04</lastmod>
+    <loc>https://subtleworks-studio.baziqhue.co.ke/extensions/phantom-typer</loc>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://subtleworks.app/extensions/invisible-selection</loc>
-    <lastmod>2026-10-04</lastmod>
+    <loc>https://subtleworks-studio.baziqhue.co.ke/extensions/invisible-selection</loc>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://subtleworks.app/about</loc>
-    <lastmod>2026-10-04</lastmod>
+    <loc>https://subtleworks-studio.baziqhue.co.ke/extensions/snapflow-studio</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://subtleworks-studio.baziqhue.co.ke/about</loc>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://subtleworks.app/privacy</loc>
-    <lastmod>2026-10-04</lastmod>
+    <loc>https://subtleworks-studio.baziqhue.co.ke/privacy</loc>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://subtleworks.app/support</loc>
-    <lastmod>2026-10-04</lastmod>
+    <loc>https://subtleworks-studio.baziqhue.co.ke/support</loc>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
 </urlset>
